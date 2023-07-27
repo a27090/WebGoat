@@ -1,10 +1,7 @@
 FROM lscr.io/linuxserver/webtop:ubuntu-xfce
 LABEL NAME = "WebGoat: A deliberately insecure Web Application"
 LABEL "WebGoat team"
-
-FROM UtilizadorIPCA
-LABEL NAME = "WebGoat: A deliberately insecure Web Application"
-LABEL "WebGoat team"
+USER UtilizadorIPCA
 
 WORKDIR /config
 
