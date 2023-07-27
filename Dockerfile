@@ -14,6 +14,8 @@ COPY app /app
 EXPOSE 8080
 EXPOSE 9090
 
+HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1 
+
 WORKDIR /home/webgoat
 ENTRYPOINT [ "java", \
    "-Duser.home=/home/webgoat", \
