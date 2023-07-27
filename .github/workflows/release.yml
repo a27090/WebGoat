@@ -1,3 +1,26 @@
+Analyzer:
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    Properties:
+      AnalyzerName: MyAccountAnalyzer
+      Type: ACCOUNT
+      Tags:
+        - Key: Kind
+          Value: Dev
+      ArchiveRules:
+        - # Archive findings for a trusted AWS account
+          RuleName: ArchiveTrustedAccountAccess
+          Filter:
+            - Property: "principal.AWS"
+              Eq:
+                - "123456789012"
+        - # Archive findings for known public S3 buckets
+          RuleName: ArchivePublicS3BucketsAccess
+          Filter:
+            - Property: "resource"
+              Contains:
+                - "arn:aws:s3:::docs-bucket"
+                - "arn:aws:s3:::clients-bucket"
+                
 name: "Release Pipeline"
 on:
   push:
@@ -145,26 +168,4 @@ jobs:
             github_token: "${{ secrets.GITHUB_TOKEN }}"
             title: ${{ github.event.commits[0].message }}
             target_branch: main
-    Analyzer:
-    Type: "AWS::AccessAnalyzer::Analyzer"
-    Properties:
-      AnalyzerName: MyAccountAnalyzer
-      Type: ACCOUNT
-      Tags:
-        - Key: Kind
-          Value: Dev
-      ArchiveRules:
-        - # Archive findings for a trusted AWS account
-          RuleName: ArchiveTrustedAccountAccess
-          Filter:
-            - Property: "principal.AWS"
-              Eq:
-                - "123456789012"
-        - # Archive findings for known public S3 buckets
-          RuleName: ArchivePublicS3BucketsAccess
-          Filter:
-            - Property: "resource"
-              Contains:
-                - "arn:aws:s3:::docs-bucket"
-                - "arn:aws:s3:::clients-bucket"
-
+ 
