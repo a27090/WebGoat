@@ -9,6 +9,8 @@ COPY config/desktop/start_webgoat.sh /config/start_webgoat.sh
 COPY config/desktop/start_zap.sh /config/start_zap.sh
 COPY config/desktop/WebGoat.txt /config/Desktop/
 
+HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1 
+
 RUN \
  case $(uname -m) in \
   x86_64) ARCH=x64;; \
