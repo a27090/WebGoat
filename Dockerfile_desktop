@@ -26,7 +26,7 @@ RUN \
  chmod +x /config/start_webgoat.sh && \
  chmod +x /config/start_zap.sh && \
  apt-get update &&  \
- apt-get --yes install vim nano && \
+ apt-get --yes install -y vim nano && \
  echo "JAVA_HOME=/config/jdk-17.0.6+10-jre/" >> .bash_aliases && \
  echo "PATH=$PATH:$JAVA_HOME/bin" >> .bash_aliases
 
