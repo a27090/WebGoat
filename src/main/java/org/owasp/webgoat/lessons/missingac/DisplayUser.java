@@ -52,11 +52,28 @@ public class DisplayUser {
 
   protected String genUserHash(String username, String password, String passwordSalt)
       throws Exception {
-    MessageDigest md = MessageDigest.getInstance("SHA-256");
-    // salting is good, but static & too predictable ... short too for a salt
-    String salted = password + passwordSalt + username;
-    // md.update(salted.getBytes("UTF-8")); // Change this to "UTF-16" if needed
-    byte[] hash = md.digest(salted.getBytes(StandardCharsets.UTF_8));
-    return Base64.getEncoder().encodeToString(hash);
+byte[] data = password.getBytes("UTF-8");
+      byte[] hash = null; 
+        
+      try { 
+          MessageDigest md = MessageDigest.getInstance("SHA-1");
+      
+          SecureRandom rand = new SecureRandom();
+          byte[] salt = new byte[32];
+          rand.nextBytes(salt); 
+      
+          md.update(salt);
+          md.update(data); 
+      
+          hash = md.digest();
+    }
+      catch (GeneralSecurityException gse) {
+          handleCryptoErrors(gse);
+    }
+      finally {
+          Arrays.fill(data, 0);
+    }
+  
+      return Base64.getEncoder().encodeToString(hash); 
   }
 }
