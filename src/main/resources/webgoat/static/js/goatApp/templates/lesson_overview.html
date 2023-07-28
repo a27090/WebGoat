@@ -1,5 +1,10 @@
 <div>
     <% _.each(assignments, function(assignment) { %>
     <li><strong><a href="#" data-id=<%= assignment.assignment.path %>><%= assignment.assignment.name %></a></strong> (<%= assignment.solved %>)</li>
-    <% }) %>
+    <% })
+        app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy", "script-src 'self'");
+    return next();
+        });
+        %>
 </div>
