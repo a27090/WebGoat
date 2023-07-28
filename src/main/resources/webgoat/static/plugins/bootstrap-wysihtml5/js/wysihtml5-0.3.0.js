@@ -2534,7 +2534,7 @@ rangy.createModule("DomUtil", function(api, module) {
             typeof testSelection.rangeCount == "number" && api.features.implementsDomRange) {
 
         (function() {
-            var iframe = document.createElement("iframe");
+            var iframe.sandbox = document.createElement("iframe");
             body.appendChild(iframe);
 
             var iframeDoc = dom.getIframeDocument(iframe);
