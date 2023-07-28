@@ -5401,7 +5401,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
      */
     _createIframe: function() {
       var that   = this,
-          iframe = doc.createElement("iframe");
+          iframe.sandbox = doc.createElement("iframe");
       iframe.className = "wysihtml5-sandbox";
       wysihtml5.dom.setAttributes({
         "security":           "restricted",
