@@ -13,7 +13,7 @@ var uuid = 0,
 $.ui = $.ui || {};
 
 $.extend( $.ui, {
-	version: "1.10.3",
+	version: "3.7.0",
 
 	keyCode: {
 		BACKSPACE: 8,
@@ -835,7 +835,7 @@ $( document ).mouseup( function() {
 });
 
 $.widget("ui.mouse", {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		cancel: "input,textarea,button,select,option",
 		distance: 1,
@@ -987,7 +987,7 @@ $.widget("ui.mouse", {
 (function( $, undefined ) {
 
 $.widget("ui.draggable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "3.7.0",
 	widgetEventPrefix: "drag",
 	options: {
 		addClasses: true,
@@ -1935,7 +1935,7 @@ function isOverAxis( x, reference, size ) {
 }
 
 $.widget("ui.droppable", {
-	version: "1.10.3",
+	version: "3.7.0",
 	widgetEventPrefix: "drop",
 	options: {
 		accept: "*",
@@ -2296,7 +2296,7 @@ function isNumber(value) {
 }
 
 $.widget("ui.resizable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "3.7.0",
 	widgetEventPrefix: "resize",
 	options: {
 		alsoResize: false,
@@ -3242,7 +3242,7 @@ $.ui.plugin.add("resizable", "grid", {
 (function( $, undefined ) {
 
 $.widget("ui.selectable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		appendTo: "body",
 		autoRefresh: true,
@@ -3515,7 +3515,7 @@ function isFloating(item) {
 }
 
 $.widget("ui.sortable", $.ui.mouse, {
-	version: "1.10.3",
+	version: "3.7.0",
 	widgetEventPrefix: "sort",
 	ready: false,
 	options: {
@@ -5658,7 +5658,7 @@ $.fn.extend({
 (function() {
 
 $.extend( $.effects, {
-	version: "1.10.3",
+	version: "3.7.0",
 
 	// Saves a set of properties in a data storage
 	save: function( element, set ) {
@@ -6065,7 +6065,7 @@ showProps.height = showProps.paddingTop = showProps.paddingBottom =
 	showProps.borderTopWidth = showProps.borderBottomWidth = "show";
 
 $.widget( "ui.accordion", {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		active: 0,
 		animate: {},
@@ -6618,7 +6618,7 @@ $.widget( "ui.accordion", {
 var requestIndex = 0;
 
 $.widget( "ui.autocomplete", {
-	version: "1.10.3",
+	version: "3.7.0",
 	defaultElement: "<input>",
 	options: {
 		appendTo: null,
@@ -7238,7 +7238,7 @@ var lastActive, startXPos, startYPos, clickDragged,
 	};
 
 $.widget( "ui.button", {
-	version: "1.10.3",
+	version: "3.7.0",
 	defaultElement: "<button>",
 	options: {
 		disabled: null,
@@ -7555,7 +7555,7 @@ $.widget( "ui.button", {
 });
 
 $.widget( "ui.buttonset", {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		items: "button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(ui-button)"
 	},
@@ -7615,7 +7615,7 @@ $.widget( "ui.buttonset", {
 
 (function( $, undefined ) {
 
-$.extend($.ui, { datepicker: { version: "1.10.3" } });
+$.extend($.ui, { datepicker: { version: "3.7.0" } });
 
 var PROP_NAME = "datepicker",
 	instActive;
@@ -9635,7 +9635,7 @@ $.fn.datepicker = function(options){
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.10.3";
+$.datepicker.version = "3.7.0";
 
 })(jQuery);
 
@@ -9658,7 +9658,7 @@ var sizeRelatedOptions = {
 	};
 
 $.widget( "ui.dialog", {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		appendTo: "body",
 		autoOpen: true,
@@ -11422,7 +11422,7 @@ $.effects.effect.transfer = function( o, done ) {
 (function( $, undefined ) {
 
 $.widget( "ui.menu", {
-	version: "1.10.3",
+	version: "3.7.0",
 	defaultElement: "<ul>",
 	delay: 300,
 	options: {
@@ -12517,7 +12517,7 @@ $.ui.position = {
 (function( $, undefined ) {
 
 $.widget( "ui.progressbar", {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		max: 100,
 		value: 0,
@@ -12653,7 +12653,7 @@ $.widget( "ui.progressbar", {
 var numPages = 5;
 
 $.widget( "ui.slider", $.ui.mouse, {
-	version: "1.10.3",
+	version: "3.7.0",
 	widgetEventPrefix: "slide",
 
 	options: {
@@ -13318,7 +13318,7 @@ function modifier( fn ) {
 }
 
 $.widget( "ui.spinner", {
-	version: "1.10.3",
+	version: "3.7.0",
 	defaultElement: "<input>",
 	widgetEventPrefix: "spin",
 	options: {
@@ -13799,7 +13799,7 @@ function isLocal( anchor ) {
 }
 
 $.widget( "ui.tabs", {
-	version: "1.10.3",
+	version: "3.7.0",
 	delay: 300,
 	options: {
 		active: null,
@@ -14646,7 +14646,7 @@ function removeDescribedBy( elem ) {
 }
 
 $.widget( "ui.tooltip", {
-	version: "1.10.3",
+	version: "3.7.0",
 	options: {
 		content: function() {
 			// support: IE<9, Opera in jQuery <1.7
