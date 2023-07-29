@@ -60,6 +60,7 @@ public class Welcome {
     // send them to the welcome page
     HttpSession session = request.getSession();
     if (session.getAttribute(WELCOMED) == null) {
+         session.invalidate(); //invalidar sessões não fechadas
       session.setAttribute(WELCOMED, "true");
     }
 
