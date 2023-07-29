@@ -42,10 +42,19 @@ public class SSRFTask2 extends AssignmentEndpoint {
   @PostMapping("/SSRF/task2")
   @ResponseBody
   public AttackResult completed(@RequestParam String url) {
+    if (request.getParameterMap().containsKey("url")) {
+    String url = request.getParameter("url");
+    if (url.startsWith("/") && !url.startsWith("//")) {
+      response.sendRedirect(url);
+    } else {
+      response.sendRedirect("/");
+    }
+  }
     return furBall(url);
   }
 
   protected AttackResult furBall(String url) {
+      
     if (url.matches("http://ifconfig\\.pro")) {
       String html;
       try (InputStream in = new URL(url).openStream()) {
