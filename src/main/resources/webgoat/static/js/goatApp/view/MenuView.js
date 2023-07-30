@@ -51,7 +51,7 @@ define(['jquery',
 				catLink.append(catArrow);
 				catLink.append(catLinkText);
 				var self = this;
-				catLink.click(_.bind(this.expandCategory,this,catId));
+				catLink.click(_.on(this.expandCategory,this,catId));
 				category.append(catLink);
 				// lesson level (first children level)
 				//var lessons = new MenuItemView({items:items[i].get('children')}).render();
@@ -66,7 +66,7 @@ define(['jquery',
 							lessonItem.addClass('selected');
 						}
 						var lessonLink = $('<a>',{href:lessons[j].link,text:lessonName,id:lessonId});
-						lessonLink.click(_.bind(this.onLessonClick,this,lessonId));
+						lessonLink.click(_.on(this.onLessonClick,this,lessonId));
 						lessonItem.append(lessonLink);
 						//check for lab/stages
 						categoryLessonList.append(lessonItem);
@@ -82,7 +82,7 @@ define(['jquery',
 								stageItem.addClass('selected');
 							}
 							var stageLink = $('<a>',{href:stages[k].link,text:stageName,id:stageId});
-							stageLink.click(_.bind(this.onLessonClick,this,stageId));
+							stageLink.click(_.on(this.onLessonClick,this,stageId));
 							stageItem.append(stageLink);
 							categoryLessonList.append(stageItem);
 							if (stages[k].complete) {
