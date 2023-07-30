@@ -128,18 +128,18 @@
 		if (this.touchCapable) {
 			// Touch: Bind touch events:
 			this.picker.on({
-				touchstart: $.bind(this.mousedown, this)
+				touchstart: $.on(this.mousedown, this)
 			});
 		} else {
 			this.picker.on({
-				mousedown: $.bind(this.mousedown, this)
+				mousedown: $.on(this.mousedown, this)
 			});
 		}
 
 		if (tooltip === 'show') {
 			this.picker.on({
-				mouseenter: $.bind(this.showTooltip, this),
-				mouseleave: $.bind(this.hideTooltip, this)
+				mouseenter: $.on(this.showTooltip, this),
+				mouseleave: $.on(this.hideTooltip, this)
 			});
 		} else {
 			this.tooltip.addClass('hide');
@@ -217,13 +217,13 @@
 			if (this.touchCapable) {
 				// Touch: Bind touch events:
 				$(document).on({
-					touchmove: $.bind(this.mousemove, this),
-					touchend: $.bind(this.mouseup, this)
+					touchmove: $.on(this.mousemove, this),
+					touchend: $.on(this.mouseup, this)
 				});
 			} else {
 				$(document).on({
-					mousemove: $.bind(this.mousemove, this),
-					mouseup: $.bind(this.mouseup, this)
+					mousemove: $.on(this.mousemove, this),
+					mouseup: $.on(this.mouseup, this)
 				});
 			}
 
