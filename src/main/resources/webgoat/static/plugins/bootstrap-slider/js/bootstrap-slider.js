@@ -128,11 +128,11 @@
 		if (this.touchCapable) {
 			// Touch: Bind touch events:
 			this.picker.on({
-				touchstart: $.proxy(this.mousedown, this)
+				touchstart: $.bind(this.mousedown, this)
 			});
 		} else {
 			this.picker.on({
-				mousedown: $.proxy(this.mousedown, this)
+				mousedown: $.bind(this.mousedown, this)
 			});
 		}
 
@@ -217,13 +217,13 @@
 			if (this.touchCapable) {
 				// Touch: Bind touch events:
 				$(document).on({
-					touchmove: $.proxy(this.mousemove, this),
-					touchend: $.proxy(this.mouseup, this)
+					touchmove: $.bind(this.mousemove, this),
+					touchend: $.bind(this.mouseup, this)
 				});
 			} else {
 				$(document).on({
-					mousemove: $.proxy(this.mousemove, this),
-					mouseup: $.proxy(this.mouseup, this)
+					mousemove: $.bind(this.mousemove, this),
+					mouseup: $.bind(this.mouseup, this)
 				});
 			}
 
