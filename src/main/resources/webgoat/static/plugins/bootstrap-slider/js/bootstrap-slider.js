@@ -138,8 +138,8 @@
 
 		if (tooltip === 'show') {
 			this.picker.on({
-				mouseenter: $.proxy(this.showTooltip, this),
-				mouseleave: $.proxy(this.hideTooltip, this)
+				mouseenter: $.bind(this.showTooltip, this),
+				mouseleave: $.bind(this.hideTooltip, this)
 			});
 		} else {
 			this.tooltip.addClass('hide');
