@@ -6,7 +6,7 @@ function getCookieValue() {
 }
 
 function cleanup() {
-	document.cookie = 'spoof_auth=;Max-Age=9000;secure=true';
+	document.cookie = 'spoof_auth=;Max-Age=9000;secure=true;httpOnly=true';
 	$('#spoof_username').removeAttr('disabled');
 	$('#spoof_password').removeAttr('disabled');
 	$('#spoof_submit').removeAttr('disabled');
